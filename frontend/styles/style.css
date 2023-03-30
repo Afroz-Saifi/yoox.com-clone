@@ -368,20 +368,23 @@ footer .container > div a {
 
 /* products section starts from here */
 .products_section {
-    /* display: flex;
-    justify-content: space-between; */
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
     margin: 30px 40px;
 }
 
 .products_section  .filters_container {
   position: sticky;
-  top: 80px;
-  width: 600px;
+  top: 100px;
+  /* width: 100px; */
+  width: 25%;
   border: 1px solid red;
   float: left;
   height: 80vh;
 }
 .products_section  .products_container {
+  width: 75%;
   float: right;
 }
 /* products section ends here */
