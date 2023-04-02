@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css"
+    />
+  </head>
+  <body>
+    <!-- top header starts -->
+    <div class="top_header">
+      <!-- header starts form here -->
+      <header>
+        <div class="container">
+          <div>
+            <p>INDIA</p>
+            <p class="m-left">CUSTOMER CARE</p>
+          </div>
+          <p>FREE SHIPPING ON ORDERS OVER US$ 190</p>
+          <div class="login_signup">
+            <div class="users_register_box">
+              <i
+                class="fa-sharp fa-solid fa-pencil fa-bounce"
+                style="color: #000333"
+              ></i>
+              <p>REGISTER</p>
+            </div>
+            <div class="users_register_box" id="login_form_container">
+              <div id="open_login_form">
+                <i
+                  class="fa fa-duotone fa-unlock fa-bounce"
+                  style="color: #000333"
+                  class="m-left"
+                ></i>
+                <p>LOGIN</p>
+              </div>
+              <form id="login_form">
+                <i
+                  class="fa-solid fa-xmark fa-xl"
+                  style="text-align: right"
+                  id="close_login_form"
+                ></i>
+                <h1>it's great to see you again.</h1>
+                <div class="login_with_google">
+                  <p>Log in with</p>
+                  <div class="login_options">
+                    <img
+                      src="https://t1.gstatic.com/images?q=tbn:ANd9GcRPKRMO9ZCqqrGDPw40klphVQyPdUy7QILrgTS9hYDIIppF36M2"
+                      alt=""
+                    />
+                    <img
+                      src="https://lh3.googleusercontent.com/w1u9Ovk_hWsZVxRw5IAyP-LIv8P7zeimQk5wvhFofF9w2UwSZk_BNNJ8QUMmH5Wu6TKuwbFK0hZ3Uop6akvCyOJLj9lClvjTSxTyGvtH"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <p>or with your e-mail address</p>
+                <div class="email_pass">
+                  <input
+                    type="email"
+                    id="user_email"
+                    placeholder="E-MAIL"
+                    required
+                  />
+                  <input
+                    type="password"
+                    id="user_password"
+                    placeholder="PASSWORD"
+                    required
+                  />
+                  <div class="checkbox">
+                    <input type="checkbox" /> <label>REMEMBER ME</label>
+                  </div>
+                </div>
+                <p style="text-align: right; text-decoration: underline">
+                  Forgot your password?
+                </p>
+                <input type="submit" value="LOG IN" />
+                <p style="font-size: 10px; font-weight: 100">
+                  For more information, please consult the Privacy Policy
+                </p>
+                <span
+                  >ARE YOU NEW TO YOOX?
+                  <span
+                    id="register_now"
+                    onclick="{location.href='./registration.html'}"
+                    >REGISTER NOW</span
+                  ></span
+                >
+              </form>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- header ends here -->
+
+      <!-- navigation starts from here -->
+      <nav class="main_navigation">
+        <div class="container">
+          <div class="tabs">
+            <nav>
+              <a href="./women.html">WOMEN</a>
+              <a href="#">MEN</a>
+              <a href="#">KIDS</a>
+              <a href="#">DESIGN+ART</a>
+            </nav>
+          </div>
+          <div>
+            <img src="../images/oop_mark.png" alt="" class="logo" />
+          </div>
+          <div class="user_things">
+            <i class="fa-regular fa-heart fa-xl"></i>
+            <i class="fa fa-duotone fa-bag-shopping fa-xl"></i>
+          </div>
+        </div>
+      </nav>
+      <!-- navigation ends here -->
+    </div>
+    <!-- top header ends -->
+
+    <!-- registration form starts from here -->
+    <form id="registration_form">
+      <h2>REGISTER WITH YOUR SOCIAL MEDIA ACCOUNT</h2>
+      <div class="login_with_google">
+        <p>Log in with</p>
+        <div class="login_options">
+          <img
+            src="https://t1.gstatic.com/images?q=tbn:ANd9GcRPKRMO9ZCqqrGDPw40klphVQyPdUy7QILrgTS9hYDIIppF36M2"
+            alt=""
+          />
+          <img
+            src="https://lh3.googleusercontent.com/w1u9Ovk_hWsZVxRw5IAyP-LIv8P7zeimQk5wvhFofF9w2UwSZk_BNNJ8QUMmH5Wu6TKuwbFK0hZ3Uop6akvCyOJLj9lClvjTSxTyGvtH"
+            alt=""
+          />
+        </div>
+      </div>
+      <p>or with your e-mail address</p>
+      <div class="email_pass">
+        <input
+          type="text"
+          placeholder="FIRST NAME *"
+          id="first_name"
+          required
+        />
+        <input type="text" placeholder="LAST NAME *" id="last_name" required />
+        <input
+          type="email"
+          id="resgister_user_email"
+          placeholder="E-MAIL *"
+          required
+        />
+        <select name="" id="gender">
+          <option value="male">MALE</option>
+          <option value="female">FEMALE</option>
+        </select>
+        <input type="date" required id="user_dob" />
+        <input
+          type="number"
+          placeholder="CONTACT *"
+          id="user_contact"
+          required
+        />
+        <input
+          type="password"
+          id="register_user_password"
+          placeholder="PASSWORD *"
+          required
+        />
+        <div class="checkbox">
+          <input type="checkbox" />
+          <label
+            >I agree to the use of my personal data in order to be updated on
+            new arrivals, informed about exclusive items and contacted as part
+            of targeted marketing initiatives related to services offered by
+            YOOX. By analyzing my personal data, order history and browsing
+            habits, YOOX can improve my shopping experience with suggestions
+            that correspond to my interests. For further information, please
+            consult the Privacy Policy.</label
+          >
+        </div>
+      </div>
+      <p style="text-align: right; text-decoration: underline">
+        I declare that I have read and accept the MYOOX Terms and Conditions of
+        Use
+      </p>
+      <input type="submit" value="REGISTER" />
+      <p style="font-size: 10px; font-weight: 100">
+        For more information, please consult the Privacy Policy
+      </p>
+    </form>
+    <!-- registration form ends here -->
+
+    <!-- footer starts from here -->
+    <footer>
+      <div class="container">
+        <div>
+          <h1>NEW TO OOP MARK <br />______</h1>
+          <a href="#">Shopping guide</a>
+          <a href="#">iPhone/iPad/Android</a>
+          <a href="#">Browse all Designers</a>
+          <a href="#">Browse all Categories</a>
+        </div>
+        <div>
+          <h1>HELP <br />______</h1>
+          <a href="#">Shipping times & costs</a>
+          <a href="#">Payments and web security</a>
+          <a href="#">Product quality</a>
+          <a href="#">Track your order</a>
+          <a href="#">Returns & refunds</a>
+          <a href="#">FAQs</a>
+          <a href="#">Size Guide</a>
+        </div>
+        <div>
+          <h1>MOPPMARK<br />______</h1>
+          <a href="#">Login</a>
+          <a href="#">My orders</a>
+          <a href="#">My Details</a>
+          <a href="#">Dread Box</a>
+          <a href="#">Premiere</a>
+        </div>
+        <div>
+          <h1>ABOUT US <br />______</h1>
+          <a href="#">Company info</a>
+          <a href="#">Press</a>
+          <a href="#">Affiliation</a>
+          <a href="#">Careers</a>
+        </div>
+      </div>
+    </footer>
+    <hr color="white" size="4px" />
+    <div class="social">
+      <div class="container">
+        <div>
+          <p>CONNECT WITH US</p>
+          <i
+            class="fa-brands fa-facebook-f fa-shake fa-xl"
+            style="color: #000333"
+          ></i>
+          <i
+            class="fa-brands fa-twitter fa-shake fa-xl"
+            style="color: #000333"
+          ></i>
+          <i
+            class="fa-brands fa-square-instagram fa-shake fa-xl"
+            style="color: #000333"
+          ></i>
+          <i
+            class="fa-brands fa-youtube fa-shake fa-xl"
+            style="color: #000333"
+          ></i>
+          <i
+            class="fa-brands fa-pinterest fa-shake fa-xl"
+            style="color: #000333"
+          ></i>
+        </div>
+        <div>
+          <i
+            class="fa fa-duotone fa-mobile fa-bounce fa-xl"
+            style="--fa-primary-color: #000333; --fa-secondary-color: #000333"
+          ></i>
+          <p>DOWNLOAD THE APP FOR iOS / ANDROID</p>
+        </div>
+      </div>
+    </div>
+    <div class="black_belt">
+      <div class="container">
+        <p class="row-1">
+          POWERED BY YOOX NET-A-PORTER GROUP - COPYRIGHT © 2000-2023 YOOX
+          NET-A-PORTER GROUP S.P.A. - ALL RIGHTS RESERVED - SIAE LICENCE #
+          401/I/526
+        </p>
+        <p class="row-2">LEGAL AREA / PRIVACY POLICY</p>
+      </div>
+    </div>
+    <!-- footer ends here -->
+
+    <!-- <script src="../scripts/script.js"></script> -->
+    <script>
+      const login_url = "https://real-blue-dragonfly-suit.cyclic.app/users/login";
+      const register_url = "https://real-blue-dragonfly-suit.cyclic.app/users/register";
+      const login_form_el = document.getElementById("login_form");
+      const registration_form_el = document.getElementById("registration_form")
+
+      // open login form
+      function open_login_form() {
+        document.getElementById("login_form").style.visibility = "visible";
+      }
+      document
+        .getElementById("open_login_form")
+        .addEventListener("click", () => {
+          open_login_form();
+        });
+      // close login form
+      function close_login_form() {
+        document.getElementById("login_form").style.visibility = "hidden";
+      }
+      document
+        .getElementById("close_login_form")
+        .addEventListener("click", () => {
+          close_login_form();
+        });
+
+
+        // register user
+        registration_form_el.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let obj = {
+          first_name: registration_form_el.first_name.value,
+          last_name: registration_form_el.last_name.value,
+          email: registration_form_el.resgister_user_email.value,
+          password: registration_form_el.register_user_password.value,
+          gender: registration_form_el.gender.value,
+          dob: registration_form_el.user_dob.value,
+          phone: registration_form_el.user_contact.value,
+        };
+        fetch(register_url, {
+          method: "POST",
+          body: JSON.stringify(obj),
+          headers: { "Content-type": "application/json" },
+        })
+          .then((req) => req.json())
+          .then((res) => {
+            open_login_form()
+          })
+          .catch((err) => alert("Wrong crendencials"));
+      });
+
+
+      // login user
+      login_form_el.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let obj = {
+          email: login_form_el.user_email.value,
+          password: login_form_el.user_password.value,
+        };
+        fetch(login_url, {
+          method: "POST",
+          body: JSON.stringify(obj),
+          headers: { "Content-type": "application/json" },
+        })
+          .then((req) => req.json())
+          .then((res) => loged_in_success(res))
+          .catch((err) => alert("Wrong crendencials"));
+      });
+      function loged_in_success(data) {
+        const { msg, user_name, token } = data;
+        if (!token) {
+          alert("wrong credencials");
+          return;
+        }
+        localStorage.setItem("user_name", user_name);
+        localStorage.setItem("token", token);
+        location.href="../index.html"
+      }
+    </script>
+  </body>
+</html>

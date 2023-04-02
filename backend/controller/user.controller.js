@@ -23,6 +23,7 @@ const loginUser = async (req, res) => {
       if (checker) {
         return res.status(200).json({
           msg: "login successfull",
+          user_name: data.first_name,
           token: jwt.sign({ userId: data._id }, process.env.secretKey, {
             expiresIn: "3h",
           }),

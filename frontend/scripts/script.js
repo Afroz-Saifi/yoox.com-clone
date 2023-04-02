@@ -1,8 +1,20 @@
 const base_url = "https://real-blue-dragonfly-suit.cyclic.app/products";
+const login_url = "https://real-blue-dragonfly-suit.cyclic.app/users/login";
 const products_container = document.querySelector(".products_container");
-let pageNo = Number(document.querySelector("#page_no").textContent);
+let pageNo = Number(document.querySelector("#page_no").textContent)||1;
 let leftPage = document.querySelector("#page_left");
 const rightPage = document.querySelector("#page_right");
+const login_form_el = document.getElementById("login_form");
+const logged_user_name = localStorage.getItem("user_name");
+const logged_user_token = localStorage.getItem("token");
+
+if (logged_user_name) {
+  document.getElementById("reistration_box").style.display = "none"
+  document.getElementById("user_name_box").style.display = "flex";
+  document.getElementById("display_user_name").textContent = logged_user_name;
+  document.getElementById("login_form_container").style.display = "none"
+  document.getElementById("logout_user").style.display = "flex";
+}
 
 fetchMe(base_url, pageNo);
 
@@ -149,7 +161,7 @@ const appendMe = (data) => {
   products_container.innerHTML = data
     .map((ele) => {
       return `
-        <div class="product_card"> 
+        <div class="product_card" id=${ele._id} onclick="{get_solo_product(this)}"> 
             <div class="card_image">
                 <img src="${ele.image}" />
             </div>
@@ -177,12 +189,56 @@ const appendMe = (data) => {
     .join("");
 };
 
+// login user
+login_form_el.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let obj = {
+    email: login_form_el.user_email.value,
+    password: login_form_el.user_password.value,
+  };
+  fetch(login_url, {
+    method: "POST",
+    body: JSON.stringify(obj),
+    headers: { "Content-type": "application/json" },
+  })
+    .then((req) => req.json())
+    .then((res) => loged_in_success(res))
+    .catch((err) => alert("Wrong crendencials"));
+});
+function loged_in_success(data) {
+  const { msg, user_name, token } = data;
+  if (!token) {
+    alert("wrong credencials");
+    return;
+  }
+  localStorage.setItem("user_name", user_name);
+  localStorage.setItem("token", token);
+  location.reload();
+}
 
+// logout user
+document.getElementById("logout_user").addEventListener("click", (e) => {
+  localStorage.clear();
+  location.reload()
+})
 // open login form
-document.getElementById("open_login_form").addEventListener("click", () => {
-  document.getElementById("login_form").style.visibility = "visible"
-})
+function open_login_form(){
+  document.getElementById("login_form").style.visibility = "visible";
+}
+document.getElementById("open_login_form").addEventListener("click", () => { 
+  open_login_form()
+});  
 // close login form
+function close_login_form(){
+  document.getElementById("login_form").style.visibility = "hidden";
+}
 document.getElementById("close_login_form").addEventListener("click", () => {
-  document.getElementById("login_form").style.visibility = "hidden"
-})
+  close_login_form()
+});
+
+
+// get solo product
+function get_solo_product(e){
+  localStorage.setItem("solo_id", e.id)
+  location.href = "../files/solo.html"
+}

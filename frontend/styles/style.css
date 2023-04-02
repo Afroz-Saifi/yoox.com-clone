@@ -57,10 +57,10 @@ header .container div .m-left {
 /* header ends here */
 
 /* login form starts form here */
-#login_form_container{
+#login_form_container {
   position: relative;
 }
-#login_form_container #open_login_form{
+#login_form_container #open_login_form {
   cursor: pointer;
 }
 #login_form_container #login_form {
@@ -70,63 +70,81 @@ header .container div .m-left {
   top: 100%;
   right: 0;
   background-color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  /* gap: 20px; */
   visibility: hidden;
 }
-.login_with_google {
+#close_login_form {
+  cursor: pointer;
+}
+.login_with_google,
+#registration_form .login_with_google {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-#login_form_container form .login_options {
+#login_form_container form .login_options,
+#registration_form .login_options {
   height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-#login_form_container form p {
+#login_form_container form p,
+#registration_form p {
   font-size: 12px;
 }
 
-#login_form_container form .login_options img {
+#login_form_container form .login_options img,
+#registration_form .login_options img {
   width: 45%;
   height: 100%;
 }
-#login_form_container form .email_pass {
+#login_form_container form .email_pass,
+#registration_form .email_pass {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 8px;
 }
-#login_form_container form .email_pass > input {
+#login_form_container form .email_pass > input,
+#registration_form .email_pass > input {
   width: 100%;
   padding: 10px;
   background-color: var(--main-light);
   border: none;
-  outline: none;
+  /* outline: none; */
+  border: none;
+  border-bottom: 1px solid #ccc;
   font-size: 16px;
 }
-
-label {
-  margin-left: 6px;
+#login_form_container form .email_pass > input:focus,
+#registration_form .email_pass > input:focus {
+  outline: none;
+  border-bottom: 2px solid #4a90e2;
+}
+#login_form_container form .email_pass label,
+#registration_form .email_pass label {
+  margin-left: 10px;
   color: var(--light);
   font-style: italic;
 }
 
-#login_form_container form h1 {
+#login_form_container form h1,
+#registration_form h1 {
   font-size: 18px;
   position: relative;
   z-index: 1;
 }
-#login_form_container form h1::before {
+#login_form_container form h1::before,
+#registration_form h1::before {
   content: "";
   position: absolute;
   bottom: 2px;
@@ -141,25 +159,69 @@ label {
   z-index: -1;
 }
 
-#login_form_container form input[type="submit"]{
+#login_form_container form input[type="submit"],
+#registration_form input[type="submit"] {
   background-color: var(--dark);
   color: #fff;
   padding: 18px;
   border: none;
   font-weight: bold;
 }
-#login_form_container form span{
+#login_form_container form span,
+#registration_form span {
   font-size: 12px;
   color: var(--light);
 }
 
-#login_form_container form #register_now{
+#login_form_container form #register_now {
   font-weight: 900;
   color: var(--dark);
   text-decoration: underline;
+  cursor: pointer;
+}
+.users_register_box {
+  cursor: pointer;
+}
+#user_name_box {
+  display: none;
+  cursor: pointer;
+  gap: 2px;
+}
+#logout_user {
+  display: none;
+  cursor: pointer;
+  gap: 2px;
+}
+/* login form ends here */
+
+/* registration form starts from here */
+#registration_form {
+  width: 400px;
+  min-height: 90vh;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  margin: 10px auto;
+}
+#registration_form .checkbox {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+#registration_form .checkbox input {
+  width: 200px;
+}
+#registration_form select {
+  width: 200px;
+  padding: 6px 10px;
 }
 
-/* login form ends here */
+/* registraton form ends here */
 
 /* main navigation starts from here */
 .main_navigation {
@@ -626,3 +688,160 @@ footer .container > div a {
 }
 
 /* filters section starts from here */
+
+/* solo product starts from here */
+.solo_section {
+  background-color: #fff;
+}
+.solo_section .container {
+  width: 70vw;
+  height: 70vh;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#solo_image {
+  width: 300px;
+  transition: transform 0.6s ease-in-out;
+  z-index: 999;
+}
+#solo_description {
+  /* border: 1px solid red; */
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#solo_description h1 {
+  font-size: 20px;
+}
+#solo_description .category {
+  font-weight: 100;
+}
+#solo_description .old_price {
+  color: var(--light);
+  text-decoration: line-through;
+}
+#solo_description .off {
+  margin-left: 10px;
+  font-weight: bold;
+}
+#solo_description .new_price {
+  font-weight: bold;
+  font-size: 18px;
+}
+#solo_description .size span {
+  margin-right: 8px;
+  font-size: 16px;
+  background-color: var(--main-light);
+  padding: 6px;
+  cursor: pointer;
+  border: 1px solid;
+  transition: 0.2s;
+}
+#solo_description .size span:hover {
+  background-color: var(--dark);
+  color: #fff;
+}
+#solo_description .need_help {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+#solo_description .need_more_help {
+  background-color: var(--main-light);
+  padding: 15px;
+  color: var(--dark);
+}
+#solo_description .find_size {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  margin: 4px 0;
+}
+#solo_description button {
+  padding: 12px;
+  border: none;
+  margin-bottom: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#add_to_bag {
+  background-color: var(--dark);
+  color: #fff;
+}
+#add_to_bag:hover {
+  background-color: #000;
+  color: #fff;
+}
+#add_to_dream:hover {
+  background-color: #3333336f;
+}
+#solo_description .size .size-option.selected {
+  background-color: var(--dark);
+  color: #fff;
+}
+/* solo product ends here */
+
+/* bag page styles starts form here */
+#bag_container {
+  width: 90vw;
+  margin: auto;
+  margin-top: 10px;
+}
+#bag_container .card {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: center;
+  background-color: #fff;
+}
+#bag_container .card .col-1{
+  display: flex;
+}
+#bag_container .card img{
+  width: 80px;
+}
+#bag_container .card h1{
+  margin-top: 10px;
+  font-size: 20px;
+}
+#bag_container .card .col-1 p{
+  font-size: 16px;
+}
+#bag_container .card .size{
+  background-color: var(--dark);
+  color: #fff;
+  padding: 10px;
+}
+#bag_container .card button{
+  cursor: pointer;
+  border: none;
+  background-color: rgba(255, 0, 0, 0.733);
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  transition: 0.2s;
+}
+#bag_container .card button:hover{
+  background-color: rgba(194, 0, 0, 0.993);
+}
+#bag_container .card .old_price{
+  color: var(--light);
+  text-decoration: line-through;
+  font-weight: bold;
+}
+#bag_container .card .off{
+  font-weight: bold;
+}
+#bag_container .card .price{
+  font-weight: bold;
+  font-size: 18px;
+}
+#bag_container .card .prices{
+  line-height: 20px;
+}
+/* bag page styles ends here */

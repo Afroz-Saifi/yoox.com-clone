@@ -34,13 +34,25 @@
           </div>
           <p>FREE SHIPPING ON ORDERS OVER US$ 190</p>
           <div class="login_signup">
-            <div class="users_register_box">
+            <!-- if logged in -->
+            <div class="users_register_box" id="user_name_box">
+              <i class="fa-solid fa-user" style="color: #000333"></i>
+              <p id="display_user_name"></p>
+            </div>
+            <!-- if not logged in already -->
+            <div class="users_register_box" id="reistration_box" onclick="{location.href='./registration.html'}">
               <i
                 class="fa-sharp fa-solid fa-pencil fa-bounce"
                 style="color: #000333"
               ></i>
               <p>REGISTER</p>
             </div>
+            <!-- if logged in -->
+            <div class="users_register_box" id="logout_user">
+              <i class="fa-solid fa-lock"></i>
+              <p id="logout_button">LOGOUT</p>
+            </div>
+            <!-- if not logged in -->
             <div class="users_register_box" id="login_form_container">
               <div id="open_login_form">
                 <i
@@ -72,11 +84,17 @@
                 </div>
                 <p>or with your e-mail address</p>
                 <div class="email_pass">
-                  <input type="text" id="user_email" placeholder="E-MAIL" />
+                  <input
+                    type="email"
+                    id="user_email"
+                    placeholder="E-MAIL"
+                    required
+                  />
                   <input
                     type="password"
                     id="user_password"
                     placeholder="PASSWORD"
+                    required
                   />
                   <div class="checkbox">
                     <input type="checkbox" /> <label>REMEMBER ME</label>
@@ -91,7 +109,7 @@
                 </p>
                 <span
                   >ARE YOU NEW TO YOOX?
-                  <span id="register_now">REGISTER NOW</span></span
+                  <span id="register_now" onclick="{location.href='./registration.html'}">REGISTER NOW</span></span
                 >
               </form>
             </div>
@@ -105,7 +123,7 @@
         <div class="container">
           <div class="tabs">
             <nav>
-              <a href="index.html" class="selected_tab">WOMEN</a>
+              <a href="#" class="selected_tab">WOMEN</a>
               <a href="#">MEN</a>
               <a href="#">KIDS</a>
               <a href="#">DESIGN+ART</a>
@@ -186,12 +204,6 @@
         <p class="save_search">SAVE SEARCH</p>
         <p class="items">6900+ items</p>
         <div class="sort_box">
-          <!-- <p>
-            SORT BY<i
-              class="fa fa-duotone fa-caret-down fa-xl"
-              style="color: #33333357"
-            ></i>
-          </p> -->
           <select id="sort_fileter">
             <option value="">SORT BY</option>
             <option value="desc">HIGEST PRICE</option>
@@ -515,6 +527,16 @@
                   value="T-shirts"
                 />
                 <span>T-shirts</span>
+              </div>
+              <div class="option">
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  class="category_filter_option"
+                  value="Handbags"
+                />
+                <span>Handbags</span>
               </div>
               <div class="option">
                 <input

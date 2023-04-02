@@ -41,4 +41,14 @@ const getAllProcucts = async (req, res) => {
   }
 };
 
-module.exports = { getAllProcucts };
+const getSoloProcuct = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const solo_data = await productModel.findById(id);
+    return res.status(200).json(solo_data);
+  } catch (error) {
+    return res.status(404).json({ err: "product not found" });
+  }
+};
+
+module.exports = { getAllProcucts, getSoloProcuct };

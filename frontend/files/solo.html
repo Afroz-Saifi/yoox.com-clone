@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>women</title>
-    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -42,7 +42,7 @@
             <div
               class="users_register_box"
               id="reistration_box"
-              onclick="{location.href='./files/registration.html'}"
+              onclick="{location.href='./registration.html'}"
             >
               <i
                 class="fa-sharp fa-solid fa-pencil fa-bounce"
@@ -114,7 +114,7 @@
                   >ARE YOU NEW TO YOOX?
                   <span
                     id="register_now"
-                    onclick="{location.href='./files/registration.html'}"
+                    onclick="{location.href='./registration.html'}"
                     >REGISTER NOW</span
                   ></span
                 >
@@ -130,19 +130,19 @@
         <div class="container">
           <div class="tabs">
             <nav>
-              <a href="./files/women.html">WOMEN</a>
+              <a href="./women.html">WOMEN</a>
               <a href="#">MEN</a>
               <a href="#">KIDS</a>
               <a href="#">DESIGN+ART</a>
             </nav>
           </div>
           <div>
-            <img src="./images/oop_mark.png" alt="" class="logo" />
+            <img src="../images/oop_mark.png" alt="" class="logo" />
           </div>
           <div class="user_things">
             <i class="fa fa-magnifying-glass fa-xl" style="color: #000333"></i>
             <i class="fa-regular fa-heart fa-xl"></i>
-            <i class="fa fa-duotone fa-bag-shopping fa-xl" onclick="{location.href='./files/bag.html'}"></i>
+            <i class="fa fa-duotone fa-bag-shopping fa-xl"></i>
           </div>
         </div>
       </nav>
@@ -196,68 +196,16 @@
       <!-- categories navigation eds here -->
     </div>
 
-    <!-- top main image section start form here -->
-    <section class="top_image_section">
+    <!-- solo product section starts from here -->
+    <section class="solo_section">
       <div class="container">
-        <img
-          src="https://www.yoox.com/images/yoox80/banners/6769_1_ChrissGlass_Main.png?634485886601286852&impolicy=cropDefault&width=960&height=510"
-          alt=""
-        />
-        <div class="box">
-          <h1>OBJECTS OF MATTER</h1>
-          <p class="art_design">
-            Art and design: new ways to observe the future
-          </p>
-          <p class="find_out_more">Find out more</p>
+        <div class="solo_image">
+          <img src="" alt="" id="solo_image" />
         </div>
+        <div id="solo_description"></div>
       </div>
     </section>
-    <!-- top main image section ends form here -->
-
-    <!-- designers section starts form here -->
-    <section class="designers_section">
-      <div class="container">
-        <div class="designers">
-          <img
-            src="https://www.yoox.com/images/yoox80/banners/6824_21_ShoesEdit_W_HL.jpg?634485886601286852#width=430&height=600"
-            alt=""
-          />
-          <div class="box">
-            <h1>SOLE MATES</h1>
-            <p class="art_design">The perfect shoes to match your style</p>
-            <p class="find_out_more">SHOP NOW</p>
-          </div>
-        </div>
-        <div class="middle_in_designers">
-          <p class="light">DESIGNERS</p>
-          <div class="points">
-            <p>DOLCE & GABBANA</p>
-            <p>DSQUARED2</p>
-            <p>MARNI</p>
-            <p>CHLOÉ</p>
-            <p>MAISON MARGIELA</p>
-            <p>BRUNELLO CUCINELLI</p>
-            <p>GUCCI</p>
-            <p>OFF-WHITE™</p>
-            <p>PRADA</p>
-            <p>VERSACE</p>
-          </div>
-          <p><u>VIEW ALL</u></p>
-        </div>
-        <div class="designers">
-          <img
-            src="https://www.yoox.com/images/yoox80/banners/6981_1_Trend_W_HL.jpg?634485886601286852#width=430&height=600"
-            alt=""
-          />
-          <div class="box">
-            <h1>RODEO 2000</h1>
-            <p class="art_design">Western wear meets Y2K</p>
-            <p class="find_out_more">GET THE LOOK</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- designers section ends here -->
+    <!-- solo product section ends here -->
 
     <!-- testimonials section stars form here -->
     <section class="testimonials">
@@ -503,10 +451,10 @@
     </section>
     <!-- just image section ends here -->
     <section class="img-1">
-      <img src="./images/img-1.png" alt="" />
+      <img src="../images/img-1.png" alt="" />
     </section>
     <section class="img-2">
-      <img src="./images/img-2.png" alt="" />
+      <img src="../images/img-2.png" alt="" />
     </section>
     <!-- just image ends here -->
 
@@ -595,12 +543,121 @@
     <!-- footer ends here -->
 
     <script>
+      const solo_url = "https://real-blue-dragonfly-suit.cyclic.app/products";
       const login_url =
         "https://real-blue-dragonfly-suit.cyclic.app/users/login";
+      const add_to_cart_url =
+        "https://real-blue-dragonfly-suit.cyclic.app/bag/add";
       const login_form_el = document.getElementById("login_form");
       const registration_form_el = document.getElementById("registration_form");
       const logged_user_name = localStorage.getItem("user_name");
       const logged_user_token = localStorage.getItem("token");
+      const solo_id = localStorage.getItem("solo_id");
+      const solo_image = document.getElementById("solo_image");
+      const solo_description = document.getElementById("solo_description");
+      const token = localStorage.getItem("token");
+
+      // fetch the solo product
+      fetch(`${solo_url}/${solo_id}`)
+        .then((req) => req.json())
+        .then((res) => append_solo(res));
+
+      function append_solo(res) {
+        solo_image.src = res.image;
+        solo_description.innerHTML = `
+            <div class="row-1">
+                <h1> ${res.brand} </h1>
+                <p class="category"> ${res.microcategory} </p> 
+            </div>
+            <div class="row-2">
+                <div> <span class="old_price"> ${
+                  res.oldprice
+                } </span> <span class="off"> ${res.off} </span> </div>
+                <p class="new_price"> US$ ${res.newprice},00 </p>
+            </div> 
+            <div class="size">
+                ${res.size
+                  .split(" ")
+                  .map((ele) => `<span class="size-option">${ele}</span>`)
+                  .join("")}
+            </div>
+            <div class="need_help">
+                <div class="need_more_help"> <p> Need more help? View the <span style="color: #000; font-weight: bold;"> Size Guide </span> </p> </div>
+                <p class="find_size"> FIND YOUR SIZE </p>
+                <button id="add_to_bag"> ADD TO SHOPPING BAG </button>
+                <button id="add_to_dream"> ADD TO DREAM BOX </button>
+            </div>
+        `;
+        localStorage.setItem("add_to_bag", JSON.stringify(res));
+        add_to_bag();
+      }
+
+      // add to bag
+      function add_to_bag() {
+        const sizeOptions = document.querySelectorAll(".size-option");
+        sizeOptions.forEach((option) => {
+          option.addEventListener("click", (e) => {
+            // Remove selected class from all size options
+            sizeOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            // Add selected class to the clicked size option
+            option.classList.add("selected");
+          });
+        });
+        document.getElementById("add_to_bag").addEventListener("click", () => {
+          let selectedSize = document.querySelector(
+            ".size-option.selected"
+          ).textContent;
+          const {
+            brand,
+            category,
+            image,
+            microcategory,
+            newprice,
+            off,
+            oldprice,
+          } = JSON.parse(localStorage.getItem("add_to_bag"));
+          fetch(add_to_cart_url, {
+            method: "POST",
+            body: JSON.stringify({
+              brand,
+              category,
+              image,
+              microcategory,
+              newprice,
+              off,
+              oldprice,
+              size: selectedSize || "S",
+            }),
+            headers: {
+              "Content-type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          })
+            .then((req) => req.json())
+            .then((res) => bag_checker(res))
+            .catch((err) => {
+              document.getElementById("login_form").style.visibility =
+                "visible";
+            });
+        });
+      }
+      function bag_checker(res) {
+        if (res.success) {
+          alert("added successfull");
+        } else {
+          alert("login first");
+        }
+      }
+
+      // flip image
+      setTimeout(function () {
+        solo_image.style.transform = "scaleX(-1)";
+      }, 3000);
+      setTimeout(function () {
+        solo_image.style.transform = "scaleX(1)";
+      }, 3600);
 
       if (logged_user_name) {
         document.getElementById("reistration_box").style.display = "none";
@@ -614,7 +671,7 @@
       // logout user
       document.getElementById("logout_user").addEventListener("click", (e) => {
         localStorage.clear();
-        location.reload();
+        location.href = "../index.html";
       });
 
       // open login form
