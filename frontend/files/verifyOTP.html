@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTP verification</title>
+    <style>
+      div {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        width: 40%;
+        margin: auto;
+        margin-top: 200px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+      }
+      h3 {
+        text-align: center;
+        margin-top: 40px;
+      }
+      #otp {
+        display: block;
+        padding: 10px;
+        width: 350px;
+
+        margin: auto;
+      }
+      #otp:hover {
+        border-width: thin;
+        border: 1px solid blue;
+      }
+      #sub {
+        display: block;
+        margin: auto;
+        padding: 15px;
+        background-color: blue;
+        color: white;
+        border-radius: 7px;
+        border: none;
+      }
+      #sub:hover {
+        background-color: white;
+        color: blue;
+        border-width: thin;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h3>Please check you email, Enter OTP</h3>
+      <input type="text" name="" id="otp" placeholder="Enter OTP" /> <br />
+      <input type="submit" value="Verify" id="sub" />
+    </div>
+  </body>
+  <script>
+    // const baseUrl = "http://localhost:8080/users/verifyotp";
+    let token = localStorage.getItem("verify");
+    let btn = document.getElementById("sub");
+    let input = document.getElementById("otp");
+    token ? token : "";
+
+    // let otp=input.value
+
+    btn.addEventListener("click", () => {
+      // console.log(input.value)
+      fetch(`https://oopmark.onrender.com/users/verifyotp`, {
+        method: "POST",
+        body: JSON.stringify({ otp: input.value }),
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          alert(res.msg);
+          if (res.msg == "Email verified") {
+            window.location.href = "../index.html";
+          }
+        });
+    });
+  </script>
+</html>

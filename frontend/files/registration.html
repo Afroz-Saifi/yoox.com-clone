@@ -292,10 +292,14 @@
 
     <!-- <script src="../scripts/script.js"></script> -->
     <script>
-      const login_url = "https://real-blue-dragonfly-suit.cyclic.app/users/login";
-      const register_url = "https://real-blue-dragonfly-suit.cyclic.app/users/register";
+      // const login_url =
+      //   "https://real-blue-dragonfly-suit.cyclic.app/users/login";
+      // const register_url =
+      //   "https://real-blue-dragonfly-suit.cyclic.app/users/register";
+      const login_url = "https://oopmark.onrender.com/users/login"
+      const register_url = "https://oopmark.onrender.com/users/register"
       const login_form_el = document.getElementById("login_form");
-      const registration_form_el = document.getElementById("registration_form")
+      const registration_form_el = document.getElementById("registration_form");
 
       // open login form
       function open_login_form() {
@@ -316,9 +320,8 @@
           close_login_form();
         });
 
-
-        // register user
-        registration_form_el.addEventListener("submit", (e) => {
+      // register user
+      registration_form_el.addEventListener("submit", (e) => {
         e.preventDefault();
         let obj = {
           first_name: registration_form_el.first_name.value,
@@ -336,11 +339,16 @@
         })
           .then((req) => req.json())
           .then((res) => {
-            open_login_form()
+            localStorage.setItem("verify", res.token);
+            if (res.msg === "user already exist please Login!") {
+              // open_login_form()
+              // window.location.href = "./files/login.html";
+            } else {
+              window.location.href = "./verifyOTP.html";
+            }
           })
           .catch((err) => alert("Wrong crendencials"));
       });
-
 
       // login user
       login_form_el.addEventListener("submit", (e) => {
@@ -366,7 +374,7 @@
         }
         localStorage.setItem("user_name", user_name);
         localStorage.setItem("token", token);
-        location.href="../index.html"
+        location.href = "../index.html";
       }
     </script>
   </body>

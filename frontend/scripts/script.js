@@ -1,5 +1,7 @@
-const base_url = "https://real-blue-dragonfly-suit.cyclic.app/products";
-const login_url = "https://real-blue-dragonfly-suit.cyclic.app/users/login";
+// const base_url = "https://real-blue-dragonfly-suit.cyclic.app/products";
+// const login_url = "https://real-blue-dragonfly-suit.cyclic.app/users/login";
+const base_url = "https://oopmark.onrender.com/products";
+const login_url = "https://oopmark.onrender.com/users/login";
 const products_container = document.querySelector(".products_container");
 let pageNo = Number(document.querySelector("#page_no").textContent)||1;
 let leftPage = document.querySelector("#page_left");
@@ -210,6 +212,10 @@ function loged_in_success(data) {
   if (!token) {
     alert("wrong credencials");
     return;
+  }
+  if(msg=="verify your email first!"){
+      alert("Verify your email first !")
+      return;
   }
   localStorage.setItem("user_name", user_name);
   localStorage.setItem("token", token);
